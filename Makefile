@@ -1,7 +1,5 @@
-DBNAME:=sysken_rails
-
 migrate/init:
-	mysql -u root -h localhost --protocol tcp -e "create database \`$(DBNAME)\`" -p
+	docker-compose exec app rake db:create
 
 migrate/up:
 	docker-compose exec app rake db:migrate

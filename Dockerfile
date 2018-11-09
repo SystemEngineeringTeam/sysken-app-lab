@@ -1,18 +1,26 @@
 FROM ruby:latest
 
+RUN mkdir /src
+
+ENV APP_ROOT /src
+
+WORKDIR $APP_ROOT
+
 # 必要なものをインストール
 RUN apt-get update
 RUN apt-get install -y apt-utils nodejs mysql-client
 RUN rm -rf /var/lib/apt/lists/*
 
-ADD . /src
+# ホスト側のGemfileをコピー
+ADD Gemfile $APP_ROOT
+ADD Gemfile.lock $APP_ROOT
 
-WORKDIR /src
+# bundle install
+RUN  bundle config --global build.nokogiri --use-system-libraries
+RUN  bundle config --global jobs 4
+RUN  bundle install
 
-# bundle
-RUN bundle config --global build.nokogiri --use-system-libraries
-RUN bundle config --global jobs 4
-RUN bundle install
+ADD . $APP_ROOT
 
 # docker runした時に起動するコマンドを設定、ポートは3000を設定
 EXPOSE  3000
