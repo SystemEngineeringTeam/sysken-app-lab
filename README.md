@@ -13,13 +13,22 @@
 |docker|18.06.1-ce|
 |docker-compose|1.22.0|
 
+Homebrewが入ってない人は以下のコマンドから実行
+
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+Homebrewが入っていたら,これより下を実行
+
+`brew cask install docker`
+
+`open /Application/Docker.app`
+
 ## Usage(使い方)
 
 1. `make docker/start`
-2. `make bundle/install`
-3. `make migrate/init`
-4. `make migrate/up`
-5. access [http://localhost:3000/](http://localhost:3000/)
+2. `make migrate/init`
+3. `make migrate/up`
+4. access [http://localhost:3000/](http://localhost:3000/)
 
 ### Makefile
 
