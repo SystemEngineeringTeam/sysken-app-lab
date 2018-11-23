@@ -16,7 +16,10 @@
 ## Usage(使い方)
 
 1. `make docker/start`
-2. access [http://localhost:3000/](http://localhost:3000/)
+2. `make bundle/install`
+3. `make migrate/init`
+4. `make migrate/up`
+5. access [http://localhost:3000/](http://localhost:3000/)
 
 ### Makefile
 

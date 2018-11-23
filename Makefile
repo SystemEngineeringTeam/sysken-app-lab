@@ -33,3 +33,6 @@ app/bash:
 
 db/bash:
 	docker-compose exec db bash
+
+bundle/install:
+	docker-compose exec app bundle install

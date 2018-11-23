@@ -18,7 +18,7 @@ ADD Gemfile.lock $APP_ROOT
 # bundle install
 RUN  bundle config --global build.nokogiri --use-system-libraries
 RUN  bundle config --global jobs 4
-RUN  bundle install
+RUN gem install bundler & bundle install
 
 ADD . $APP_ROOT
 
