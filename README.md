@@ -21,14 +21,15 @@ Homebrewが入っていたら,これより下を実行
 
 `brew cask install docker`
 
-`open /Application/Docker.app`
+`open /Applications/Docker.app`
 
 ## Usage(使い方)
 
 1. `make docker/start`
-2. `make migrate/init`
-3. `make migrate/up`
-4. access [http://localhost:3000/](http://localhost:3000/)
+2. `make bundle/install`
+3. `make migrate/init`
+4. `make migrate/up`
+5. access [http://localhost:3000/](http://localhost:3000/)
 
 ### Makefile
 
