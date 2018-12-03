@@ -1,50 +1,56 @@
-# set-web-rails
+# SET-WEB-RAILS
 
-## Requirement
+## Description(詳細)
+
+シス研メンバーでRailsでWebサービスを作成する
+
+## Requirement(必要条件)
+
 |言語/FW|Version|
-|:--:|:--:|
-|ruby|2.5.0|
-|Rails|5.1.6|
+|:--|--:|
+|ruby|2.5.3|
+|Rails|5.2.1|
+|docker|18.06.1-ce|
+|docker-compose|1.22.0|
 
-### HHTPサーバを起動
-Railsは *Puma* というHTTPサーバを標準で提供しています。本番環境では、Nginx / Apache + Unicorn, Herokuなど、用途に応じてさまざまな選択肢がありますが、開発時点ではPumaで問題ないでしょう。
-*カレントディレクトリをアプリの配下に移動* してrailsコマンドを実行してください。
-```
-$ cd set-web-rails
-$ rails server
-=> Booting Puma
-=> Rails 5.1.6 application starting in development
-=> Run `rails server -h` for more startup options
-Puma starting in single mode...
-* Version 3.11.3 (ruby 2.5.0-p0), codename: Love Song
-* Min threads: 5, max threads: 5
-* Environment: development
-* Listening on tcp://0.0.0.0:3000
-Use Ctrl-C to stop
-```
+Homebrewが入ってない人は以下のコマンドから実行
 
-#### 補足
-`rails sever`はショートカットとして`rails s`で代替できます。
-Pumaを停止する際は、`Ctrl + C`でシャットダウン出来ます。(Use Ctrl-C to stop)
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-### アクセスする
-Pumaが起動したら、ブラウザからアプリにアクセスしましょう。
+Homebrewが入っていたら,これより下を実行
 
-`http://localhost:3000/`
+`brew cask install docker`
 
-|ファイル/フォルダ|目的|
-|:-----------|:------------|
-|app/|ここにはアプリケーションのコントローラ、モデル、ビュー、ヘルパー、メイラー、そしてアセットが置かれます。以後、本ガイドでは基本的にこのディレクトリを中心に説明を行います。|
-|bin/|ここにはアプリケーションを起動したりデプロイしたりするためのRailsスクリプトなどのスクリプトファイルが置かれます。
-|config/|アプリケーションの設定ファイル (ルーティング、データベースなど) がここに置かれます。詳細についてはRailsアプリケーションを設定する を参照してください。
-|config.ru|アプリケーションの起動に必要となる、Rackベースのサーバー用のRack設定ファイルです。
-|db/|現時点のデータベーススキーマと、データベースマイグレーションファイルが置かれます。
-|Gemfile Gemfile.lock|これらのファイルは、Railsアプリケーションで必要となるgemの依存関係を記述します。この2つのファイルはBundler gemで使用されます。Bundlerの詳細についてはBundlerのWebサイトを参照してください。
-|lib/|アプリケーションで使用する拡張モジュールが置かれます。
-|log/|アプリケーションのログファイルが置かれます。
-|public/|このフォルダの下にあるファイルは外部 (インターネット) からそのまま参照できます。静的なファイルやコンパイル済みアセットはここに置きます。
-|Rakefile|このファイルには、コマンドラインから実行できるタスクを記述します。ここでのタスク定義は、Rails全体のコンポーネントに対して定義されます。独自のRakeタスクを定義したい場合は、Rakefileに直接書くと権限が強すぎるので、なるべくlib/tasksフォルダの下にRake用のファイルを追加するようにしてください。
-|README.md|アプリケーションの概要を説明するマニュアルをここに記入します。このファイルにはアプリケーションの設定方法などを記入し、これさえ読めば誰でもアプリケーションを構築できるようにしておく必要があります。
-|test/|Unitテスト、フィクスチャなどのテスト関連ファイルをここに置きます。テストについてはRailsアプリケーションをテストするを参照してください。
-|tmp/|キャッシュ、pid、セッションファイルなどの一時ファイルが置かれます。
-|vendor/|サードパーティによって書かれたコードはすべてここに置きます。通常のRailsアプリケーションの場合、外部からのgemファイルをここに置きます。
+`open /Applications/Docker.app`
+
+## Usage(使い方)
+
+1. `make docker/start`
+2. `make bundle/install`
+3. `make migrate/init`
+4. `make migrate/up`
+5. access [http://localhost:3000/](http://localhost:3000/)
+
+### Makefile
+
+このリポジトリはMakefileを用いて開発しています。
+
+Makefileを読めば、やっていることは理解できると思いますが、メモ程度に書いておきます。
+
+`make docker/start`　Dockerコンテナを起動します。
+
+`make docker/stop` Dockerコンテナを停止します。
+
+`make docker/clean`　Dockerコンテナを削除します。
+
+`make db/bash` MySQLコンテナにbashで入ることが出来ます。データベースの中身を知りたい際にご利用ください。
+
+`make app/bash` APPコンテナにbashで入ることが出来ます。railsコマンドなどを叩く際にご利用ください。 
+
+`make migrate/init` マイグレーションするために初期化をします。
+
+`make migrate/up` マイグレーションを行います。
+
+`make migrate/down` マイグレーションを取り下げます。
+
+`make migrate/status` マイグレーションの状態を確認することができます。
