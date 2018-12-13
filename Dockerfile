@@ -24,4 +24,4 @@ ADD . $APP_ROOT
 
 # docker runした時に起動するコマンドを設定、ポートは3000を設定
 EXPOSE  3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+#CMD ["rails", "server", "-b", "0.0.0.0"]
