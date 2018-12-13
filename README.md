@@ -29,7 +29,8 @@ Homebrewが入っていたら,これより下を実行
 2. `make bundle/install`
 3. `make migrate/init`
 4. `make migrate/up`
-5. access [http://localhost:3000/](http://localhost:3000/)
+5. `make run`
+6. access [http://localhost:3000/](http://localhost:3000/)
 
 ### Makefile
 

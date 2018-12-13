@@ -36,3 +36,7 @@ db/bash:
 
 bundle/install:
 	docker-compose exec app bundle install
+
+run:
+	docker-compose exec app rails s -b 0.0.0.0
+
