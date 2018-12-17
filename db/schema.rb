@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2018_12_15_175141) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "sex"
-    t.integer "grade"
+    t.integer "sex_id"
+    t.integer "grade_id"
     t.integer "lab_id"
     t.text "content"
     t.datetime "created_at", null: false
