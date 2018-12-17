@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :sex_id
       t.integer :grade_id
       t.integer :lab_id
-      t.text :content
+      t.text :context
 
       t.timestamps
     end

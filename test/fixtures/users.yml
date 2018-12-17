@@ -5,11 +5,11 @@ one:
   sex_id: 1
   grade_id: 1
   lab_id: 1
-  content: MyText
+  context: MyText
 
 two:
   name: MyString
   sex_id: 1
   grade_id: 1
   lab_id: 1
-  content: MyText
+  context: MyText
