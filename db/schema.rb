@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_145545) do
+ActiveRecord::Schema.define(version: 2018_12_17_122845) do
 
-  create_table "laboratories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "labs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "university_id"
-    t.text "lab_name"
-    t.text "lab_overview"
+    t.text "lab"
+    t.text "overview"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

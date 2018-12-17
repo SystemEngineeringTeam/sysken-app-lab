@@ -2,10 +2,10 @@
 
 one:
   university_id: 1
-  lab_name: MyText
-  lab_overview: MyText
+  lab: MyText
+  overview: MyText
 
 two:
   university_id: 1
-  lab_name: MyText
-  lab_overview: MyText
+  lab: MyText
+  overview: MyText
