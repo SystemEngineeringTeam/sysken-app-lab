@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  sex_id: 1
+  gender_id: 1
   grade_id: 1
   lab_id: 1
   context: MyText
 
 two:
   name: MyString
-  sex_id: 1
+  gender_id: 1
   grade_id: 1
   lab_id: 1
   context: MyText

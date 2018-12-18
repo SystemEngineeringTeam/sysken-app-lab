@@ -73,23 +73,23 @@ Grade.create(
     ]
 )
 
-Sex.create(
+Gender.create(
     [
         {
             id: 0,
-            sex: '不明'
+            gender: '不明'
         },
         {
             id: 1,
-            sex: '男性'
+            gender: '男性'
         },
         {
             id: 2,
-            sex: '女性'
+            gender: '女性'
         },
         {
             id: 9,
-            sex: '適用不能'
+            gender: '適用不能'
         }
     ]
 )
@@ -98,7 +98,7 @@ User.create(
     [
         {
             name: 'hogehoge',
-            sex_id: 1,
+            gender_id: 1,
             grade_id: 2,
             lab_id: 1,
             context: '研究内容'

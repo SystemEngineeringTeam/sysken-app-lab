@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SexTest < ActiveSupport::TestCase
+class GenderTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
