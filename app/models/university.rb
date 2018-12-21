@@ -1,4 +1,4 @@
 class University < ApplicationRecord
-    belongs_to :ken
+    belongs_to :prefecture
     has_many :labs
 end
