@@ -2,10 +2,10 @@
 
 one:
   university: MyString
-  ken_id: 1
+  prefecture_id: 1
 
 
 two:
   university: MyString
-  ken_id: 1
+  prefecture_id: 1
 
