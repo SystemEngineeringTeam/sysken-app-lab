@@ -3,11 +3,11 @@ class LabsController < ApplicationController
   
   def index
     @labs = Lab.all
-    render json: @labs
+    render "index", :formats => [:json], :handlers => [:jbuilder]
   end
 
   def show
-    render json: @lab
+    render "show", :formats => [:json], :handlers => [:jbuilder]
   end
 
   def new
