@@ -20,9 +20,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user
        log_in @user
-      render :show, status: :created, location: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render 'new'
     end
   end
 
