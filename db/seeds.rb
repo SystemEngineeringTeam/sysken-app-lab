@@ -101,7 +101,9 @@ User.create(
             gender_id: 1,
             grade_id: 2,
             lab_id: 1,
-            context: '研究内容'
+            context: '研究内容',
+            email: 'sysken2018@gmail.com',
+            password: 'sysken2018'
         }
     ]
 )
