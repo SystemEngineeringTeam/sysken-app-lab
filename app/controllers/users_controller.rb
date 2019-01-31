@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to @user
-      log_in @user
+       log_in @user
     else
       render 'new'
     end
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user, :university_id, :overview, :name, :email, :password, :password_confirmat)
+      params.require(:user).permit( :name, :email, :gender_id, :grade_id, :lab_id, :password, :password_confirmation)
     end
 
 

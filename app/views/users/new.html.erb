@@ -11,6 +11,16 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
+　　　<%= f.label :gender %>
+      <%= f.collection_select :gender_id, Gender.all, :id, :gender, include_blank: '選択して下さい' %>
+
+      <%= f.label :grade %>
+      <%= f.collection_select :grade_id, Grade.all, :id, :grade, include_blank: '選択して下さい' %>
+
+      <%= f.label :lab %>
+      <%= f.collection_select :lab_id, Lab.all, :id, :lab, include_blank: '選択して下さい' %>
+
+
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 

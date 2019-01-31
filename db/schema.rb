@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_140118) do
+ActiveRecord::Schema.define(version: 2019_01_31_155046) do
 
   create_table "genders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "gender"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 2018_12_17_140118) do
     t.integer "lab_id"
     t.text "context"
     t.string "email"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

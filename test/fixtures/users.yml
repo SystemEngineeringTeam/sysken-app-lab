@@ -7,7 +7,6 @@ one:
   lab_id: 1
   context: MyText
   email: MyString
-  password: MyString
 
 two:
   name: MyString
@@ -16,7 +15,7 @@ two:
   lab_id: 1
   context: MyText
   email: MyString
-  password: MyString
+
 
 
 

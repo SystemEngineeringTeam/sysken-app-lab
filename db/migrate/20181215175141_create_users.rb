@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :lab_id
       t.text :context
       t.string :email
-      t.string :password
       t.timestamps
     end
   end
