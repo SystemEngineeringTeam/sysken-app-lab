@@ -9,4 +9,4 @@ json.set! :lab do
 end
 
 json.context @user.context
-
+json.email @user.email
