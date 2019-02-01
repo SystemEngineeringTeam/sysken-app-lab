@@ -1,17 +1,17 @@
 class User < ApplicationRecord
-  validates :name,  presence: true, length: { maximum: 50 }
-  validates :email, presence: true, length: { maximum: 255}
-  validates :gender, presence: true, length: { maximum: 10}
-  validates :grade, presence: true, length: { maximum: 10}
-  validates :lab, presence: true, length: { maximum: 50}
-  #validates :context, presence: true, length: { maximum: 100}
-
-
-  belongs_to :gradeb
+  belongs_to :grade
   belongs_to :gender
   belongs_to :lab
 
-　has_secure_password
+  validates :name,  presence: true, length: { maximum: 50 }
+  validates :email, presence: true, length: { maximum: 255}
+  validates :gender, presence: true
+  validates :grade, presence: true
+  validates :lab, presence: true
+  # validates :context, presence: true, length: { maximum: 100}
 
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true, length: { minimum: 6 }
 
 end
