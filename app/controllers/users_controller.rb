@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     render "show", :formats => [:json], :handlers => [:jbuilder]
-    @user = User.find(params[:id])
   end
 
   def new
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to @user
-       log_in @user
+      log_in @user
     else
       render 'new'
     end
