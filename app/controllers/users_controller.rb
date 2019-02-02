@@ -16,6 +16,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if @user.lab_id.nil?
+      @user.lab_id = 0
+    end
     if @user.save
       redirect_to @user
       log_in @user

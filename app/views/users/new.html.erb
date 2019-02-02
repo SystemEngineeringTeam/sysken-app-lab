@@ -17,10 +17,6 @@
       <%= f.label :grade %>
       <%= f.collection_select :grade_id, Grade.all, :id, :grade, include_blank: '選択して下さい' %>
 
-      <%= f.label :lab %>
-      <%= f.collection_select :lab_id, Lab.all, :id, :lab, include_blank: '選択して下さい' %>
-
-
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
