@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Prefecture.create(id: 0, prefecture: '未設定')
 Prefecture.create(
     [
         {prefecture: '北海道'},
@@ -58,9 +59,24 @@ Prefecture.create(
     ]
 )
 
+University.create(id: 0, university: '未設定', prefecture_id: 0)
 University.create(university: '愛知工業大学', prefecture_id: 23)
 
-Lab.create(lab: 'シス研', university_id: 1, overview: 'シス研')
+Lab.create(
+    [
+        {
+            id: 0,
+            lab: '未設定',
+            university_id: 1
+        },
+        {
+            id: 1,
+            lab: 'シス研', 
+            university_id: 1, 
+            overview: 'シス研'
+        }
+    ]
+)
 
 Grade.create(
     [
@@ -72,6 +88,7 @@ Grade.create(
         {grade: '大学院2年生'}
     ]
 )
+
 
 Gender.create(
     [
@@ -99,9 +116,12 @@ User.create(
         {
             name: 'hogehoge',
             gender_id: 1,
-            grade_id: 2,
+            grade_id: 3,
             lab_id: 1,
-            context: '研究内容'
+            context: '研究内容',
+            email: 'sysken2018@gmail.com',
+            password: 'sysken2018',
+            password_confirmation: 'sysken2018'
         }
     ]
 )

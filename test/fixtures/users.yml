@@ -6,6 +6,7 @@ one:
   grade_id: 1
   lab_id: 1
   context: MyText
+  email: MyString
 
 two:
   name: MyString
@@ -13,3 +14,8 @@ two:
   grade_id: 1
   lab_id: 1
   context: MyText
+  email: MyString
+
+
+
+

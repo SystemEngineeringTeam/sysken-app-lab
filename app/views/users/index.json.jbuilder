@@ -3,7 +3,6 @@ json.array! @users do |user|
   json.name user.name
   json.gender user.gender.gender
   json.grade user.grade.grade
-
   json.set! :lab do
     json.name user.lab.lab
     json.overview user.lab.overview
