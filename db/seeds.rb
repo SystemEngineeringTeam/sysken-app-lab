@@ -95,19 +95,20 @@ Gender.create(
     ]
 )
 
-# User.create(
-#     [
-#         {
-#             name: 'hogehoge',
-#             gender_id: 1,
-#             grade_id: 2,
-#             lab_id: 1,
-#             context: '研究内容',
-#             email: 'sysken2018@gmail.com',
-#             password: 'sysken2018'
-#         }
-#     ]
-# )
+User.create(
+    [
+        {
+            name: 'hogehoge',
+            gender_id: 1,
+            grade_id: 3,
+            lab_id: 1,
+            context: '研究内容',
+            email: 'sysken2018@gmail.com',
+            password: 'sysken2018',
+            password_confirmation: 'sysken2018'
+        }
+    ]
+)
 
 
 
