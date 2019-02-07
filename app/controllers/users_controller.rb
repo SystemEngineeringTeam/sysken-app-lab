@@ -20,8 +20,8 @@ class UsersController < ApplicationController
       @user.lab_id = 0
     end
     if @user.save
-      redirect_to @user
       log_in @user
+      redirect_to @user
     else
       render 'new'
     end
