@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(name: "apple",  gender: "1", grade: "1", lab: "sysken", context: "研究内容", email: "apple2439@gmail.com", 
+    @user = User.new(name: "apple", gender: "1", grade: "1", lab: "sysken", context: "研究内容", email: "apple2439@gmail.com",
               password: "foobar", password_confirmation: "foobar")
   end
 
@@ -11,7 +11,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name should be present" do
-    @user.name = ""
+    @user.name = "  "
     assert_not @user.valid?
   end
 
@@ -21,17 +21,17 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "gender should be present" do
-    @user.gender = ""
+    @user.gender = "  "
     assert_not @user.valid?
   end
 
   test "grade should be present" do
-    @user.grade = ""
+    @user.grade = "  "
     assert_not @user.valid?
   end
 
   test "lab should be present" do
-    @user.lab a = ""
+    @user.lab a = "  "
     assert_not @user.valid?
   end
 
