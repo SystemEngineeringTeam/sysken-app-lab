@@ -17,9 +17,9 @@ class LabsController < ApplicationController
   def create
     @lab = Lab.new(lab_params)
     if @lab.save
-      render :show, status: :created, location: @lab
+      redirect_to @user
     else
-      render json: @lab.errors, status: :unprocessable_entity
+      render 'new'
     end
   end
 
