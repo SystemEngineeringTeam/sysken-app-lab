@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+
   def setup
-    @user = User.new(name: "apple",  gender: "1", grade: "1", lab: "sysken", context: "研究内容", email: "apple2439@gmail.com", 
-              password: "foobar", password_confirmation: "foobar")
+    @user = User.new(name: "apple", gender_id: 1, grade_id: 1, lab_id: 1, context: "sample", email: "apple2439@gmail.com",
+        password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
@@ -15,31 +16,53 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "gender should be present" do
+    @user.gender_id = ""
+    assert_not @user.valid?
+  end
+
+  test "grade should be present" do
+    @user.grade_id = ""
+    assert_not @user.valid?
+  end
+
+  test "lab should be present" do
+    @user.lab_id = ""
+    assert_not @user.valid?
+  end
+
   test "email should be present" do
     @user.email = "  "
     assert_not @user.valid?
   end
 
-  test "gender should be present" do
-    @user.gender = ""
+  test "name should not be too long" do
+    @user.name = "a" * 51
     assert_not @user.valid?
   end
 
-  test "grade should be present" do
-    @user.grade = ""
+  test "email should not be too long" do
+    @user.email = "a" * 244 + "@example.com"
     assert_not @user.valid?
   end
 
-  test "lab should be present" do
-    @user.lab a = ""
-    assert_not @user.valid?
+  test "email validation should accept valid addresses" do
+    valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
+                         first.last@foo.jp alice+bob@baz.cn]
+    valid_addresses.each do |valid_address|
+      @user.email = valid_address
+      assert @user.valid?, "#{valid_address.inspect} should be valid"
+    end
   end
 
+  test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    duplicate_user.email = @user.email.upcase
+    @user.save
+    assert_not duplicate_user.valid?
+  end
 
-
-
-
-  # test "te truth" do
-  #   assert true
-  # end
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?('')
+  end
 end
