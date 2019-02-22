@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get  '/register',  to: 'labs#new'
   resources :labs
   resources :users
+  resources :universities
 end

@@ -1,16 +1,16 @@
 class UniversitiesController < ApplicationController
   before_action :set_university, only: [:show, :edit, :update, :destroy]
 
-def index
-  @universities = University.all
-  render "index", :formats => [:json], :handlers => [:jbuilder]
-end
+  def index
+    @universities = University.all
+    render "index", :formats => [:json], :handlers => [:jbuilder]
+  end
 
-def show
+  def show
     render "show", :formats => [:json], :handlers => [:jbuilder]
   end
 
-def new
+  def new
     @university = University.new
   end
 
@@ -18,7 +18,7 @@ def new
     @university = University.new(university_params)
     if @university.lab_id.nil?
       @university.lab_id = 0
-    end
+  end
     if @uniersity.save
       log_in @university
       redirect_to @university
