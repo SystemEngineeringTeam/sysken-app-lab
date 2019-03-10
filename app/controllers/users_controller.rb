@@ -28,11 +28,15 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
-    if @user.update(user_params)
-      render :show, status: :ok, location: @user
+   @user = User.find(params[:id])
+   @user.update(params.require(:user).permit(:name, :gender, :grade, :email, :password, :password_confirmation))
+   flash[:success] = "プロフィールを更新しました"
+    #if @user.update(user_params)
+      #render :show, status: :ok, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -55,4 +59,3 @@ class UsersController < ApplicationController
     end
 
 
-end
