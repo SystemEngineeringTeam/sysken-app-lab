@@ -1,20 +1,50 @@
 <% provide(:title, 'Lab register') %>
-<h1>Lab register</h1>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
+  />
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+  crossorigin="anonymous"
+  />
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@lab) do |f| %>
-     <%= render 'shared/error_messages', model: f.object %>
-      <%= f.label :lab %>
-      <%= f.text_field :lab, class: 'form-control' %>
+<main class="row align-items-center justify-content-center h-100">
+  <form
+    class="card col-lg-7 text-justify text-center d-flex flex-column"
+    enctype="multipart/form-data"
+    action="register"
+    method="POST"
+    style="height: 80%"
+  >
+    <img
+      class="flex-fill"
+      src="./image/labRegister.svg"
+      alt=""
+      height="20%"
+      />
+    <div class="card-body text-justify text-center d-flex flex-column">
+      <h1 class="card-title flex-fill"><strong>研究室新規登録</strong></h1>
+      <%= form_for(@lab) do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <%= f.label :lab, class: "sr-only" %>
+        <%= f.text_field :lab, class: 'form-control  card-text flex-fill', placeholder: '研究室の名前' %>
 
-      <%= f.label :university %>
-      <%= f.collection_select :university_id, University.all, :id, :university, include_blank: '選択して下さい' %>
+        <%= f.label :university, class: "sr-only" %>
+        <%= f.collection_select :university_id, University.all, :id, :university, {include_blank: '大学名'}, {class:"form-control form-control-last card-text flex-fill"} %>
 
-      <%= f.label :overview %>
-      <%= f.text_area :overview, class: 'form-control' %>
+        <%= f.label :overview, class: "sr-only" %>
+        <%= f.text_area :overview, class: 'form-control form-control-last card-text flex-fill', placeholder: '研究室の概要' %>
 
-      <%= f.submit "Create lab", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+        <%= f.submit "登録する！", class: "btn btn-lg btn-primary btn-block text-justify text-center flex-fill" %>
+      <% end %>
+      <p
+        class="mt-3 mb-3 text-muted card-text text-justify text-center flex-fill"
+      >
+        &copy; System Engineering Team
+      </p>
+    </div>
+  </form>
+</main>
