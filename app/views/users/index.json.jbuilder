@@ -9,6 +9,6 @@ json.array! @users do |user|
   end
 
   json.context user.context
-
+  json.email user.email
 end
 
