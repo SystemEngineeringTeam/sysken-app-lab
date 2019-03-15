@@ -1,6 +1,50 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+  crossorigin="anonymous"
+/>
 
+<main class="row align-items-center justify-content-center h-100">
+  <form
+    class="card col-lg-5 text-justify text-center"
+    action="login"
+    method="POST"
+    style="height: 70%"
+  >
+    <img class="" src="assets/signinForm.svg" alt="rails" height="30%" />
+    <div class="card-body text-justify text-center">
+      <h1 class="card-title">ログイン</h1>
+      <h3 class="font-weight-light card-text">Please sign in...</h3>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <%= f.label :email, class: "sr-only" %>
+        <%= f.email_field :email, class: "form-control form-control-first card-text", placeholder: "ID (Email address)" %>
+
+        <%= f.label :password, class: "sr-only" %>
+        <%= f.password_field :password, class: "form-control form-control-last card-text text-justify", placeholder:"Password" %>
+
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+          <span>Remember me on this computer</span>
+        <% end %>
+        
+        <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block text-justify text-center" %>
+      <% end %>
+      <p>New user? <%= link_to "Sign up now!", signup_path%></p>
+      <p class="mt-5 mb-3 text-muted card-text text-justify text-center">
+        &copy; System Engineering Team
+      </p>
+    </div>
+  </form>
+</main>
+
+<!--
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
@@ -15,10 +59,11 @@
         <%= f.check_box :remember_me %>
         <span>Remember me on this computer</span>
       <% end %>
-      
+
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!" %></p>
   </div>
 </div>
+-->
