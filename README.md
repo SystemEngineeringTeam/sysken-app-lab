@@ -13,45 +13,16 @@
 |docker|18.06.1-ce|
 |docker-compose|1.22.0|
 
-Homebrewが入ってない人は以下のコマンドから実行
-
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-
-Homebrewが入っていたら,これより下を実行
-
-`brew cask install docker`
-
-`open /Applications/Docker.app`
-
 ## Usage(使い方)
 
-1. `make docker/start`
-2. `make bundle/install`
-3. `make migrate/init`
-4. `make migrate/up`
-5. `make run`
-6. access [http://localhost:3000/](http://localhost:3000/)
+**`make help` で何が出来るかを表示出来ます**
 
-### Makefile
+1. `make`
+2. access [http://localhost:3000/](http://localhost:3000)
 
-このリポジトリはMakefileを用いて開発しています。
+---
 
-Makefileを読めば、やっていることは理解できると思いますが、メモ程度に書いておきます。
+2回目以降
 
-`make docker/start`　Dockerコンテナを起動します。
-
-`make docker/stop` Dockerコンテナを停止します。
-
-`make docker/clean`　Dockerコンテナを削除します。
-
-`make db/bash` MySQLコンテナにbashで入ることが出来ます。データベースの中身を知りたい際にご利用ください。
-
-`make app/bash` APPコンテナにbashで入ることが出来ます。railsコマンドなどを叩く際にご利用ください。 
-
-`make migrate/init` マイグレーションするために初期化をします。
-
-`make migrate/up` マイグレーションを行います。
-
-`make migrate/down` マイグレーションを取り下げます。
-
-`make migrate/status` マイグレーションの状態を確認することができます。
+1. `make run`
+2. access [http://localhost:3000/](http://localhost:3000)
