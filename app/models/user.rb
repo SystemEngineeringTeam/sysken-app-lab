@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :picture, PictureUploader
+  
   belongs_to :grade
   belongs_to :gender
   belongs_to :lab

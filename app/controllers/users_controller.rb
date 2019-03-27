@@ -32,8 +32,7 @@ class UsersController < ApplicationController
   end
 
   def update
-   @user = User.find(params[:id])
-   @user.update(params.require(:user).permit(:name, :gender, :grade, :email, :password, :password_confirmation))
+   @user.update(user_params)
    flash[:success] = "プロフィールを更新しました"
     #if @user.update(user_params)
       #render :show, status: :ok, location: @user
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :gender_id, :grade_id, :lab_id, :context, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :gender_id, :grade_id, :lab_id, :context, :email, :password, :password_confirmation, :picture)
     end
 
 

@@ -21,12 +21,13 @@
       <img class="" src="assets/userRegister.svg" alt="rails" height="20%" />
      <h1 class="card-title flex-fill"><strong>プロフィール編集</strong></h1>
      <label for="inputEmail" class="sr-only">Eメールアドレス</label>
+
     <%= form_for(@user) do |f| %>
       <%= f.label :name, class: "sr-only" %>
       <%= f.text_field :name, class: "form-control card-text flex-fill", placeholder:"ユーザー名"%>
 
       <%= f.label :gender, class: "sr-only" %>
-      <%= f.collection_select :gender_id, Gender.all, :id, :gender,{include_blank: "性別"} , {class: "form-control card-text flex-fill"} %>
+      <%= f.collection_select :gender_id, Gender.all, :id, :gender, {include_blank: "性別"} , {class: "form-control card-text flex-fill"} %>
 
       <%= f.label :grade, class: "sr-only" %>
         <%= f.collection_select :grade_id, Grade.all, :id, :grade, {include_blank: "学年"}, {class: "form-control card-text flex-fill"} %>
