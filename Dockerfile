@@ -1,4 +1,4 @@
-FROM ruby:latest
+FROM ruby:2.5.3
 
 RUN mkdir /src
 
