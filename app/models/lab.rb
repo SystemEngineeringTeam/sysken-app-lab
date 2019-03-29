@@ -1,4 +1,5 @@
 class Lab < ApplicationRecord
+    mount_uploader :picture, PictureUploader
     belongs_to :university
     has_many :users
     has_many :grades, through: :users
