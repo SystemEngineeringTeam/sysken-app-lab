@@ -17,7 +17,7 @@ class LabsController < ApplicationController
   def create
     @lab = Lab.new(lab_params)
     if @lab.save
-      redirect_to @user
+      redirect_to @lab
     else
       render 'new'
     end
