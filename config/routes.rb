@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :labs
   resources :users
   resources :universities
+  resources :genders
+  resources :grades
 end
